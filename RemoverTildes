@@ -1,0 +1,56 @@
+ALTER FUNCTION RemoverTildes (@Cadena VARCHAR (MAX))
+   RETURNS VARCHAR (MAX)
+AS
+BEGIN
+   RETURN replace
+          (
+             replace
+             (
+                replace
+                (
+                   replace
+                   (
+                      replace
+                      (
+                         replace
+                         (
+                            replace
+                            (
+                               replace
+                               (
+                                  replace
+                                  (
+                                     replace
+                                     (
+                                        @Cadena
+                                           COLLATE SQL_Latin1_General_CP1_CS_AS,
+                                        'á',
+                                        'a')
+                                        COLLATE SQL_Latin1_General_CP1_CS_AS,
+                                     'Á',
+                                     'A')
+                                     COLLATE SQL_Latin1_General_CP1_CS_AS,
+                                  'é',
+                                  'e')
+                                  COLLATE SQL_Latin1_General_CP1_CS_AS,
+                               'É',
+                               'E')
+                               COLLATE SQL_Latin1_General_CP1_CS_AS,
+                            'í',
+                            'i')
+                            COLLATE SQL_Latin1_General_CP1_CS_AS,
+                         'Í',
+                         'I')
+                         COLLATE SQL_Latin1_General_CP1_CS_AS,
+                      'ó',
+                      'o')
+                      COLLATE SQL_Latin1_General_CP1_CS_AS,
+                   'Ó',
+                   'O')
+                   COLLATE SQL_Latin1_General_CP1_CS_AS,
+                'ú',
+                'u')
+                COLLATE SQL_Latin1_General_CP1_CS_AS,
+             'Ú',
+             'U')
+END
